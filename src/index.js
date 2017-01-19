@@ -1,9 +1,10 @@
-const getRemovedStatement = t =>
-  t.expressionStatement(t.stringLiteral('This statement has been removed'));
-const getRemovedDeclaration = t => t.variableDeclaration('var', [
-  t.variableDeclarator(t.identifier(`not_in_use_${Date.now()}`))]
-);
-const getRemovedReturnStatement = t => t.returnStatement();
+const leftCommentPattern = /\/\*/g;
+const rightCommentPattern = /\*\//g;
+const getComment = (input) => {
+  const source = input.replace(leftCommentPattern, '\\/*').replace(rightCommentPattern, '*\\/');
+  if (source.indexOf('\n') < 0) return ` ${source} `;
+  return `*\n${source.split('\n').map(line => ` * ${line}`).join('\n')}\n `;
+};
 
 function removeBinding(t, binding, shouldRemoveFunctionCalls = true) {
   if (!binding) return;
@@ -17,20 +18,19 @@ function removeBinding(t, binding, shouldRemoveFunctionCalls = true) {
       if (!shouldRemoveFunctionCalls && parentPath.node.expression.callee === path.node) {
         return;
       }
-      parentPath.replaceWith(getRemovedStatement(t));
     } else if (parentPath.isVariableDeclaration()) {
       parentPath.traverse({
         VariableDeclarator(p) {
           removeBinding(t, parentPath.scope.bindings[p.node.id.name]);
         },
       });
-      parentPath.replaceWith(getRemovedDeclaration(t));
     } else {
       const funcPath = parentPath.findParent(p => p.isFunctionDeclaration());
       const name = funcPath.node.id.name;
       removeBinding(t, funcPath.parentPath.scope.bindings[name], false);
-      parentPath.replaceWith(getRemovedReturnStatement(t));
     }
+    parentPath.addComment('trailing', getComment(parentPath.getSource()));
+    parentPath.replaceWith(t.noop());
   });
 }
 
@@ -51,7 +51,6 @@ export default function (babel) {
             return modules.indexOf(p.node.source.value) >= 0;
           })
           .forEach((binding) => {
-            console.log(binding);
             removeBinding(t, binding);
           });
       },

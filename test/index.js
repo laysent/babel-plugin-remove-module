@@ -16,7 +16,7 @@ describe('Remove Module Plugin', () => {
       const actualPath = path.join(fixtureDir, 'actual.js');
       const actual = trim(transformFileSync(actualPath, {
         plugins: [[plugin,{ modules: ['param-types', 'A', 'B', 'C'] }]],
-      }).code).replace(/not_in_use_\d+/g, 'not_in_use_xxxx');
+      }).code);
 
       const expected = fs.readFileSync(
           path.join(fixtureDir, 'expected.js')

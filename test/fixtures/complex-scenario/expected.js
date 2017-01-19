@@ -3,26 +3,26 @@ import * as B from 'B';
 import { CC as C } from 'C';
 import D from 'D';
 
-'This statement has been removed';
-var not_in_use_xxxx;
-var not_in_use_xxxx;
-var not_in_use_xxxx;
+/* A(0) */
+/* const a = 1 !== 1 ? A(1) : 'normal'; */
+/* const b = B.something(2, B.ok); */
+/* const c = C(3); */
 
 const used = D(4);
 
 function run() {
   const e = 'ok';
   const A = 'fine';
-  'This statement has been removed';
-  'This statement has been removed';
-  var not_in_use_xxxx;
-  'This statement has been removed';
-  return;
+  /* a(4); */
+  /* b(5); */
+  /* const d = c(6); */
+  /* d(7); */
+  /* return d; */
 }
 
-var not_in_use_xxxx;
+/* const e = run(used); */
 
 
 run(used);
 
-'This statement has been removed';
+/* e(8); */

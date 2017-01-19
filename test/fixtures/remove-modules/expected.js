@@ -1,11 +1,20 @@
 import * as paramTypes from 'param-types';
 import React from 'react';
 
-var not_in_use_xxxx;
+/**
+ * const validation = paramTypes.validate(
+ *   'name',
+ *   paramTypes.shape({
+ *     name: paramTypes.string.isRequired,
+ *     age: paramTypes.number,
+ *   }).isRequired,
+ *   paramTypes.restOf(paramTypes.number)
+ * );
+ */
 
 
 function test(person, id) {
-  'This statement has been removed';
+  /* validation(person, id); */
 
 
   console.log(person, id);
