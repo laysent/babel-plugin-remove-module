@@ -53,7 +53,7 @@ regularFunction('1', 1);
 ## Installation
 
 ```sh
-$ npm install babel-plugin-remove-module
+$ npm install babel-plugin-strip-module
 ```
 
 ## Usage
@@ -64,7 +64,7 @@ $ npm install babel-plugin-remove-module
 
 ```json
 {
-  "plugins": [["remove-module", { "modules": ["module name here"] }]]
+  "plugins": [["strip-module", { "modules": ["module name here"] }]]
 }
 ```
 
@@ -72,7 +72,7 @@ $ npm install babel-plugin-remove-module
 
 ```javascript
 require('babel-core').transform('code', {
-  plugins: [['remove-module', { modules: ['module name here'] }]],
+  plugins: [['strip-module', { modules: ['module name here'] }]],
 });
 ```
 

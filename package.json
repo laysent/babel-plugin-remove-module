@@ -1,7 +1,7 @@
 {
-  "name": "babel-plugin-remove-module",
+  "name": "babel-plugin-strip-module",
   "version": "1.0.0",
-  "description": "Babel plugin that join strings and template strings in compilation when possible",
+  "description": "Babel plugin that strip certain module usage in code",
   "main": "lib/index.js",
   "jsnext:main": "lib/index.js",
   "scripts": {
@@ -10,9 +10,9 @@
     "test": "jasmine JASMINE_CONFIG_PATH=./jasmine.json ./test/index.js"
   },
   "keywords": [
-    "string",
-    "concat",
-    "join",
+    "strip",
+    "remove",
+    "module",
     "babel-plugin"
   ],
   "devDependencies": {
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/laysent/babel-plugin-remove-module.git"
+    "url": "git+https://github.com/laysent/babel-plugin-strip-module.git"
   },
   "author": {
     "name": "LaySent",
@@ -31,7 +31,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/laysent/babel-plugin-remove-module/issues"
+    "url": "https://github.com/laysent/babel-plugin-strip-module/issues"
   },
-  "homepage": "https://github.com/laysent/babel-plugin-remove-module#readme"
+  "homepage": "https://github.com/laysent/babel-plugin-strip-module#readme"
 }
