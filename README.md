@@ -34,10 +34,16 @@ regularFunction('1', 1);
 ```js
 import * as paramTypes from 'param-types';
 
-var not_in_use_xxxxx;
+/*
+ * const validation = paramTypes.validate(
+ *   'function validation',
+ *   paramTypes.string.isRequired,
+ *   paramTypes.number.isRequired
+ * );
+ */
 
 function regularFunction(paramA, paramB) {
-  '';
+  /* validate(paramA, paramB); */
   console.log('do something normal here');
 }
 
@@ -58,7 +64,7 @@ $ npm install babel-plugin-remove-module
 
 ```json
 {
-  "plugins": [["remove-module"], { "modules": ["module name here"] }]
+  "plugins": [["remove-module", { "modules": ["module name here"] }]]
 }
 ```
 
@@ -66,7 +72,7 @@ $ npm install babel-plugin-remove-module
 
 ```javascript
 require('babel-core').transform('code', {
-  plugins: [['remove-module'], { modules: ['module name here'] }],
+  plugins: [['remove-module', { modules: ['module name here'] }]],
 });
 ```
 
