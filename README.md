@@ -1,4 +1,4 @@
-# babel-plugin-transform-string-join
+# babel-plugin-strip-module
 
 Babel plugin that will remove certain module usage from code.
 
