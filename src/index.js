@@ -41,7 +41,8 @@ export default function (babel) {
     visitor: {
       Program(path, state) {
         const modules = state.opts.modules || [];
-        Object.values(path.scope.bindings)
+        Object.keys(path.scope.bindings)
+          .map(key => path.scope.bindings[key])
           .filter(binding =>
                     t.isImportDefaultSpecifier(binding.path) ||
                     t.isImportNamespaceSpecifier(binding.path) ||
