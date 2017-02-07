@@ -53,6 +53,9 @@ export default function (babel) {
           })
           .forEach((binding) => {
             removeBinding(t, binding);
+            const p = binding.path.findParent(parentPath => parentPath.isImportDeclaration());
+            p.addComment('trailing', getComment(p.getSource()));
+            p.replaceWith(t.noop());
           });
       },
     },

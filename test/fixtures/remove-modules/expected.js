@@ -1,4 +1,5 @@
-import * as paramTypes from 'param-types';
+/* import * as paramTypes from 'param-types'; */
+
 import React from 'react';
 
 /**

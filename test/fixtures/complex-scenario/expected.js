@@ -1,6 +1,7 @@
-import A from 'A';
-import * as B from 'B';
-import { CC as C } from 'C';
+/* import A from 'A'; */
+/* import * as B from 'B'; */
+/* import { CC as C } from 'C'; */
+
 import D from 'D';
 
 /* A(0) */

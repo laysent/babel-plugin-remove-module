@@ -32,7 +32,7 @@ regularFunction('1', 1);
 **Out**
 
 ```js
-import * as paramTypes from 'param-types';
+/* import * as paramTypes from 'param-types'; */
 
 /*
  * const validation = paramTypes.validate(
