@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-strip-module",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Babel plugin that strip certain module usage in code",
   "main": "lib/index.js",
   "jsnext:main": "lib/index.js",
